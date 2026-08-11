@@ -1,20 +1,21 @@
 module "db" {
   source = "terraform-aws-modules/rds/aws"
 
-  identifier = "${var.project}-${var.env}-mysql"
+  identifier = "${var.project}-${var.env}"
 
   engine            = "mysql"
   engine_version    = "8.0"
-  instance_class    = "db.t3a.large"
+  instance_class    = "db.t4g.micro"
   allocated_storage = 20
 
   db_name  = "cities"
   username = "root"
   port     = "3306"
   manage_master_user_password = false
-  password_wo = "Roboshop@123"
+  password_wo = "Roboshop#123"
+  password_wo_version = 1
 
-  vpc_security_group_ids = local.mysql_sg_id
+  vpc_security_group_ids = [local.mysql_sg_id]
 
   tags = merge(local.common_tags,
     {
@@ -24,7 +25,7 @@ module "db" {
 
   # DB subnet group
   create_db_subnet_group = false
-  subnet_ids             = local.database_subnet_group_name
+  db_subnet_group_name = local.database_subnet_group_name
 
   # DB parameter group
   family = "mysql8.0"
