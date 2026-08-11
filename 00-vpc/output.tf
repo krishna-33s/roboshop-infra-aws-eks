@@ -13,3 +13,7 @@ output "private_subnet_id" {
 output "database_subnet_id" {
     value = module.vpc.database_subnet_id
 }
+
+output "database_subnet_group_name" {
+    value = module.vpc.database_subnet_group_name
+}
