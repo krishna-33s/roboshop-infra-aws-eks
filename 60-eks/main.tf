@@ -2,7 +2,7 @@ module "eks" {
   source = "../../aws-eks-module-terraform"
 
   project     = var.project
-  environment = var.env
+  env = var.env
 
   cluster_version            = var.eks_version
   vpc_id                     = local.vpc_id
