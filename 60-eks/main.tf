@@ -6,7 +6,7 @@ module "eks" {
 
   cluster_version            = var.eks_version
   vpc_id                     = local.vpc_id
-  private_subnet_ids         = local.private_subnet_ids
+  private_subnet_ids         = local.private_subnet_id
   cluster_security_group_ids = [local.eks_control_plane_sg_id]
   node_security_group_ids    = [local.eks_node_sg_id]
 
