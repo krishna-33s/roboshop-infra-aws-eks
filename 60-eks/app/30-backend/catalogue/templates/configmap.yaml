@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: catalogue-configmap
+  namespace: roboshop
+  labels:
+    project: roboshop
+    tier: backend
+    component: catalogue
+    environment: dev
+
+data:
+  MONGO: "true"
+  MONGO_URL: {{ .Values.configmap.mongo_url }}

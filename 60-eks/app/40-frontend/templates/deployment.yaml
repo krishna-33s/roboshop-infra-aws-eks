@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: roboshop
+  # this labels is for replicaset
+  labels:
+    project: roboshop
+    tier: frontend
+    component: nginx
+    environment: dev
+  annotations:
+    kubernetes.io/change-cause: {{ .Values.deployment.cause }}   
+spec:
+  replicas: {{ .Values.deployment.replicas }}
+  selector:
+    matchLabels:
+      # these labels is for replicaset to select the pods
+      project: roboshop
+      tier: frontend
+      component: nginx
+      environment: dev
+  template:
+    metadata:
+    # these for pod defination
+      labels:
+        project: roboshop
+        tier: frontend
+        component: nginx
+        environment: dev
+    spec:
+      volumes:
+      - name: nginx-config
+        configMap:
+          name: frontend-config
+      containers:
+      - name: frontend
+        image: "{{ .Values.deployment.image }}:{{ .Values.deployment.imageVersion }}"
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "128Mi"
+            cpu: "100m"
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+          failureThreshold: 4
+          periodSeconds: 10
+          initialDelaySeconds: 15   
+        livenessProbe: 
+          httpGet:
+            path: /
+            port: 80
+          failureThreshold: 4
+          periodSeconds: 10   
+        # volumeMounts:
+        # - name: nginx-config
+        #   mountPath: "/etc/nginx/nginx.conf"
+        #   subPath: nginx.conf
+        #   readOnly: true
+      

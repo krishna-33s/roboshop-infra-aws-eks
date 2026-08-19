@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: user-configmap
+  namespace: roboshop
+  labels:
+    project: roboshop
+    tier: backend
+    component: user
+    environment: dev
+
+data:
+  REDIS_URL: {{ .Values.configmap.redis_url }}
+  MONGO_URL: {{ .Values.configmap.mongo_url }}
+  MONGO: "true"

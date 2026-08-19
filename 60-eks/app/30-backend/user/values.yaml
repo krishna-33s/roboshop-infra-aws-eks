@@ -1,0 +1,8 @@
+configmap:
+  mongo_url: "mongodb://mongodb:27017/users"
+  redis_url: "redis://redis:6379"
+deployment:
+  relicas: "1"
+  image: krishna88s/user
+  imageVersion: "1.1.0"
+  cause: "this version is 1.1.0"

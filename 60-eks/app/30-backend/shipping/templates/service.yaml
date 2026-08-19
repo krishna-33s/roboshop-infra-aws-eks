@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: shipping
+  namespace: roboshop
+  labels:
+    project: roboshop
+    tier: backend
+    component: shipping
+    environment: dev
+spec:
+  selector:
+      project: roboshop
+      tier: backend
+      component: shipping
+      environment: dev
+
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080
