@@ -11,3 +11,7 @@ deployment:
   image: krishna88s/payment
   imageVersion: "1.1.0"
   cause: "this version is 1.1.0"
+HorizontalPodAutoscaler:
+  minReplicas: "1"
+  maxReplicas: "10"
+  averageUtilization: "10"  
