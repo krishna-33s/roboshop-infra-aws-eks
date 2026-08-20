@@ -1,6 +1,6 @@
 configmap:
   cart_endpoint: "cart:8080"
-  db_host: "mysql"
+  db_host: "roboshop-dev.cyv8uoimsxjx.us-east-1.rds.amazonaws.com"
 deployment:
   relicas: "1"
   image: krishna88s/shipping
