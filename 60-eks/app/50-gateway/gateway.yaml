@@ -23,7 +23,7 @@ spec:
     tls:
       mode: Terminate
       options:
-        gateway.k8s.aws/certificate-arn: "arn:aws:acm:us-east-1:160885265516:certificate/b6983d9a-848d-4898-8335-81c74db10bc3"
+        gateway.k8s.aws/certificate-arn: "arn:aws:acm:us-east-1:220719767845:certificate/a175135e-2068-40e9-a8d1-d98ef246d948"
     allowedRoutes:
       namespaces:
         from: Same
