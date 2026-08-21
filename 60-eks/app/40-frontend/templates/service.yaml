@@ -9,7 +9,6 @@ metadata:
     component: nginx
     environment: dev
 spec:
-  type: LoadBalancer
   selector:
       project: roboshop
       tier: frontend
