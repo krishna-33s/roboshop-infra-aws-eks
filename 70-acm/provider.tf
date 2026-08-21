@@ -6,7 +6,7 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = "krishna-dev-88s"
+    bucket = "venkat-dev-88s"
     key    = "terraform-eks-acm"
     region = "us-east-1"
     use_lockfile = true
