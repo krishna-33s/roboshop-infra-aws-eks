@@ -7,7 +7,7 @@ terraform {
   }
   backend "s3" {
     bucket = "venkat-dev-88s"
-    key    = "terraform-eks-sg"
+    key    = "terraform-eks-jenkins"
     region = "us-east-1"
     use_lockfile = true
     encrypt = true
