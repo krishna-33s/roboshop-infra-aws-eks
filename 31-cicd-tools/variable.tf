@@ -14,8 +14,8 @@ variable "domain_name" {
     default = "krishnadev.space"
 }
 
-variable "sonar" {
-    default = false
+variable "sonarqube" {
+    default = true
 }
 
 variable "jenkins" {
