@@ -15,7 +15,7 @@ variable "domain_name" {
 }
 
 variable "sonarqube" {
-    default = true
+    default = false
 }
 
 variable "jenkins" {
